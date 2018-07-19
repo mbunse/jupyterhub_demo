@@ -1,0 +1,14 @@
+auth:
+  type: custom
+  custom:
+    class-name: "jupyterhub.auth.PAMAuthenticator"
+    config:
+      admin_users:
+        - adminuser1
+      create_system_users: true
+proxy:
+  secretToken: "my secter hex key"
+hub:
+  image:
+    name: mbunse/jupyterhub-demo
+    tag: latest
