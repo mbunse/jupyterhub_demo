@@ -1,14 +1,63 @@
 auth:
-  type: custom
-  custom:
-    class-name: "jupyterhub.auth.PAMAuthenticator"
-    config:
-      admin_users:
-        - adminuser1
-      create_system_users: true
+  type: hmac
+  hmac:
+    secretKey: ''
+  admin:
+    users:
+      - adminuser1
+  whitelist:
+    users:
+      - adminuser1
+      - user01
+      - user02
+      - user03
+      - user04
+      - user05
+      - user06
+      - user07
+      - user08
+      - user09
+      - user10
+      - user11
+      - user12
+      - user13
+      - user14
+      - user15
+      - user16
+      - user17
+      - user18
+      - user19
+      - user20
+      - user21
+      - user22
+      - user23
+      - user24
+      - user25
+      - user26
+      - user27
+      - user28
+      - user29
+      - user30
+      - user31
+      - user32
+      - user33
+      - user34
+      - user35
+      - user36
+      - user37
+      - user38
+      - user39
+      - user40
 proxy:
-  secretToken: "my secter hex key"
+  secretToken: ''
 hub:
   image:
     name: mbunse/jupyterhub-demo
+    tag: latest
+
+singleuser:
+  storage:
+    type: none
+  image:
+    name: jupyter/scipy-notebook
     tag: latest
