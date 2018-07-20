@@ -61,3 +61,7 @@ singleuser:
   image:
     name: jupyter/scipy-notebook
     tag: latest
+
+prePuller:
+  continuous:
+    enabled: true
