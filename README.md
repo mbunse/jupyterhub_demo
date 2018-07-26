@@ -28,6 +28,9 @@ az aks create --name jupyhub-demo-cluster --resource-group Datalab-Demo --genera
 # Save credentials for kubectl
 az aks get-credentials --name jupyhub-demo-cluster --resource-group Datalab-Demo --output table
 
+# Install kubectl
+az aks install-cli 
+
 # Check
 kubectl get node
 
