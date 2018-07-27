@@ -47,7 +47,7 @@ helm repo add jupyterhub https://jupyterhub.github.io/helm-chart/
 helm repo update
 
 # Install JupyterHub on cluster
-helm install jupyterhub/jupyterhub --version=v0.6 --name=jupyhub-demo --namespace=jupyhub-demo -f config.yaml
+helm install jupyterhub/jupyterhub --version=v0.6 --name=jupyhub-demo --namespace=jupyhub-demo --timeout 3600 -f build/config.yaml
 
 # Set default namespace for kubectl
 kubectl config set-context jupyhub-demo-cluster --namespace=jupyhub-demo

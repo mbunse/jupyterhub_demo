@@ -6,5 +6,18 @@ FROM jupyter/base-notebook:27ba57364579
 
 # pin jupyterhub to match the Hub version
 # set via --build-arg in Makefile
+USER root
+#RUN apt-get update \
+#&& apt-get -y install build-essential
 ARG JUPYTERHUB_VERSION=0.8
-RUN pip install --no-cache jupyterhub==$JUPYTERHUB_VERSION
+COPY requirements.txt $HOME/.
+RUN conda install --yes --file requirements.txt && \
+    conda install xorg-libxrender xorg-libxpm && \
+    conda clean -tipsy && \
+    pip install --no-cache jupyterhub==$JUPYTERHUB_VERSION twitter && \
+    fix-permissions $CONDA_DIR 
+COPY datalab_ws.tar.gz $HOME/.
+RUN tar -xzvf datalab_ws.tar.gz && \
+    rm datalab_ws.tar.gz && \
+    fix-permissions /home/$NB_USER
+USER $NB_UID
