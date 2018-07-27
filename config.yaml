@@ -59,8 +59,8 @@ singleuser:
   storage:
     type: none
   image:
-    name: jupyter/scipy-notebook
-    tag: latest
+    name: mbunse/jupyter_ws
+    tag: v0.0.2
 
 prePuller:
   continuous:
